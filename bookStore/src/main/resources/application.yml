@@ -1,5 +1,10 @@
 server:
   port: 8082
+  tomcat:
+    accesslog:
+      enabled: true
+      pattern: common
+    basedir: logs
 
 #TODO: figure out why I need this here and in bootstrap.yml
 spring:
