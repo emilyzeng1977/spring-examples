@@ -2,6 +2,7 @@ package example.controller;
 
 import example.model.Book;
 import example.service.IBookService;
+//import hello.Greeter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,10 @@ public class BookController {
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = "/books")
     public List<Book> getBooks() {
+//        Greeter greeter = new Greeter();
         logger.debug("Debug getBooks" + new Date().toString());
         logger.info("Info getBooks"  + new Date().toString());
+//        logger.info(greeter.sayHello());
         List<Book> cities = bookService.findAll();
 
         return cities;

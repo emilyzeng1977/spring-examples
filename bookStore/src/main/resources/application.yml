@@ -6,6 +6,10 @@ server:
       pattern: common
     basedir: logs
 
+logging:
+  file:
+    name: /logs/logs/application.log
+
 #TODO: figure out why I need this here and in bootstrap.yml
 spring:
   application:
