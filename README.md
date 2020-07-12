@@ -27,3 +27,23 @@ https://github.com/macrozheng/mall-tiny
 https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html
 
 https://segmentfault.com/a/1190000020616778
+
+# ECS by Terraform
+https://medium.com/avmconsulting-blog/how-to-deploy-a-dockerised-node-js-application-on-aws-ecs-with-terraform-3e6bceb48785
+
+# ECR
+https://docs.aws.amazon.com/zh_cn/AmazonECR/latest/userguide/getting-started-cli.html
+Step1).
+aws ecr get-login
+Step2).
+docker login –u AWS –p password –e none https://tomniu13.dkr.ecr.ap-southeast-2.amazonaws.com
+
+aws ecr get-login-password | docker login -u AWS --password-stdin "https://$(aws sts get-caller-identity --query 'Account' --output text).dkr.ecr.ap-southeast-2.amazonaws.com"
+
+Step3).
+#Create repository in ECR
+004468876800.dkr.ecr.ap-southeast-2.amazonaws.com/book_store
+Step4).
+docker tag zengemily79/bookstore:latest 004468876800.dkr.ecr.ap-southeast-2.amazonaws.com/book_store:latest
+Step5).
+docker push 004468876800.dkr.ecr.ap-southeast-2.amazonaws.com/book_store:latest
