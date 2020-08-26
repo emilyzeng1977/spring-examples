@@ -34,10 +34,9 @@ https://medium.com/avmconsulting-blog/how-to-deploy-a-dockerised-node-js-applica
 * Way 1
   * aws ecr get-login
   * docker login –u AWS –p password –e none https://tomniu13.dkr.ecr.ap-southeast-2.amazonaws.com
-* Way 2 (do it in one command)
+* Way 2 (do it in one command) <br/>
 aws ecr get-login-password | docker login -u AWS --password-stdin "https://$(aws sts get-caller-identity --query 'Account' --output text).dkr.ecr.ap-southeast-2.amazonaws.com"
 
-Step3).
 * Create repository in ECR
 004468876800.dkr.ecr.ap-southeast-2.amazonaws.com/book_store
 docker tag zengemily79/bookstore:latest 004468876800.dkr.ecr.ap-southeast-2.amazonaws.com/book_store:latest
