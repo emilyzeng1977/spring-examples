@@ -1,4 +1,4 @@
-##
+## Docker operation
 
 docker build -t zengemily79/bookstore .
 docker image rm -f zengemily79/bookstore
