@@ -28,7 +28,7 @@ https://segmentfault.com/a/1190000020616778 <br/>
 ECS by Terraform <br/>
 https://medium.com/avmconsulting-blog/how-to-deploy-a-dockerised-node-js-application-on-aws-ecs-with-terraform-3e6bceb48785
 
-*ECR*
+**ECR** <br/>
 [gettingStarted](https://docs.aws.amazon.com/zh_cn/AmazonECR/latest/userguide/getting-started-cli.html)
 
 * Way 1
