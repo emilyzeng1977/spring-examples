@@ -19,13 +19,13 @@ docker exec -t -i [container ID] sh
 
 Container Log
 
-ELK
-https://juejin.im/post/5d2738a2f265da1bac404299
-https://github.com/macrozheng/mall-tiny
-https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html
-https://segmentfault.com/a/1190000020616778
+ELK <br/>
+https://juejin.im/post/5d2738a2f265da1bac404299 <br/>
+https://github.com/macrozheng/mall-tiny <br/>
+https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html <br/>
+https://segmentfault.com/a/1190000020616778 <br/>
 
-ECS by Terraform
+ECS by Terraform <br/>
 https://medium.com/avmconsulting-blog/how-to-deploy-a-dockerised-node-js-application-on-aws-ecs-with-terraform-3e6bceb48785
 
 *ECR*
@@ -37,8 +37,8 @@ https://medium.com/avmconsulting-blog/how-to-deploy-a-dockerised-node-js-applica
 * Way 2 (do it in one command) <br/>
 aws ecr get-login-password | docker login -u AWS --password-stdin "https://$(aws sts get-caller-identity --query 'Account' --output text).dkr.ecr.ap-southeast-2.amazonaws.com"
 
-* Create repository in ECR
+* Create repository in ECR and copy the link <br/>
 004468876800.dkr.ecr.ap-southeast-2.amazonaws.com/book_store
 docker tag zengemily79/bookstore:latest 004468876800.dkr.ecr.ap-southeast-2.amazonaws.com/book_store:latest
-* Push
+* Push <br/>
 docker push 004468876800.dkr.ecr.ap-southeast-2.amazonaws.com/book_store:latest
