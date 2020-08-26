@@ -30,11 +30,11 @@ https://medium.com/avmconsulting-blog/how-to-deploy-a-dockerised-node-js-applica
 
 **ECR** <br/>
 [gettingStarted](https://docs.aws.amazon.com/zh_cn/AmazonECR/latest/userguide/getting-started-cli.html)
-
-* Way 1
-  * aws ecr get-login
-  * docker login –u AWS –p password –e none https://tomniu13.dkr.ecr.ap-southeast-2.amazonaws.com
-* Way 2 (do it in one command) <br/>
+* Login
+  * Way 1
+    * aws ecr get-login
+    * docker login –u AWS –p password –e none https://tomniu13.dkr.ecr.ap-southeast-2.amazonaws.com
+  * Way 2 (do it in one command) <br/>
 aws ecr get-login-password | docker login -u AWS --password-stdin "https://$(aws sts get-caller-identity --query 'Account' --output text).dkr.ecr.ap-southeast-2.amazonaws.com"
 
 * Create repository in ECR and copy the link <br/>
