@@ -15,9 +15,9 @@ docker exec -t -i [container ID] sh
 172.17.0.1 - - [07/Jun/2020:06:06:49 +0000] "GET /books1 HTTP/1.1" 404 286
 172.17.0.1 - - [07/Jun/2020:06:06:59 +0000] "GET /books HTTP/1.1" 200 120
 
-/logs/logs/application.log
-
-Container Log
+It contains two types of log
+* /logs/logs/application.log
+* Container Log
 
 ELK <br/>
 https://juejin.im/post/5d2738a2f265da1bac404299 <br/>
