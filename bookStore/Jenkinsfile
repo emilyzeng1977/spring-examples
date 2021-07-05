@@ -44,6 +44,8 @@ spec:
     stage('Run MVN') {
       steps {
         container('maven') {
+          sh 'pwd'
+          sh 'cd bookStore'
           sh 'mvn clean package'
         }
       }
