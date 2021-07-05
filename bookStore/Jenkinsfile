@@ -41,7 +41,7 @@ spec:
     }
   }
   stages {
-    stage('') {
+    stage('Run mvn') {
       steps {
         container('maven') {
           sh 'mvn --version'
