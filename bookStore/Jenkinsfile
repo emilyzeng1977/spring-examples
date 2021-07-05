@@ -47,6 +47,8 @@ spec:
           sh 'pwd'
           sh 'ls'
           sh 'cd bookStore'
+          sh 'ls'
+          sh 'mvn --version'
           sh 'mvn clean package'
         }
       }
