@@ -2,7 +2,6 @@ pipeline {
   agent {
     kubernetes {
       yaml """
----
 apiVersion: v1
 kind: Pod
 metadata:
@@ -16,15 +15,12 @@ spec:
     command:
     - cat
     tty: true
+  - name: nginx
+    image: zengemily79/nginx_server2
+    command:
+    - cat
+    tty: true
   volumes:
-  - name: kube-volume
-    hostPath:
-      path: /home/jenkins/.kube
-      type: DirectoryOrCreate
-  - name: m2-volume
-    hostPath:
-      path: /var/run/m2
-      type: DirectoryOrCreate
   - name: kube-volume
     hostPath:
       path: /home/jenkins/.kube
