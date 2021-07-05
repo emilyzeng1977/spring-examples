@@ -8,6 +8,14 @@ kind: Pod
 metadata:
 spec:
   containers:
+  - name: maven
+    image: maven:3.6-alpine
+    volumeMounts:
+    - mountPath: /root/.m2
+      name: m2-volume
+    command:
+    - cat
+    tty: true
   - name: kubectl
     image: cnych/kubectl
     volumeMounts:
@@ -16,12 +24,15 @@ spec:
     command:
     - cat
     tty: true
-  - name: nginx
-    image: zengemily79/nginx_server2
-    command:
-    - cat
-    tty: true
   volumes:
+  - name: kube-volume
+    hostPath:
+      path: /home/jenkins/.kube
+      type: DirectoryOrCreate
+  - name: m2-volume
+    hostPath:
+      path: /var/run/m2
+      type: DirectoryOrCreate
   - name: kube-volume
     hostPath:
       path: /home/jenkins/.kube
@@ -30,6 +41,14 @@ spec:
     }
   }
   stages {
+    stage('') {
+      steps {
+        container('maven') {
+          sh 'mvn clean package'
+        }
+      }
+    }
+    
     stage('Run kubectl') {
       steps {
         container('kubectl') {
