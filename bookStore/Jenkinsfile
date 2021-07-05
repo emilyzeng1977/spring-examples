@@ -8,14 +8,6 @@ kind: Pod
 metadata:
 spec:
   containers:
-  - name: maven
-    image: maven:3.6-alpine
-    volumeMounts:
-    - mountPath: /root/.m2
-      name: m2-volume
-    command:
-    - cat
-    tty: true
   - name: kubectl
     image: cnych/kubectl
     volumeMounts:
@@ -41,14 +33,6 @@ spec:
     }
   }
   stages {
-    stage('Run mvn') {
-      steps {
-        container('maven') {
-          sh 'mvn --version'
-        }
-      }
-    }
-    
     stage('Run kubectl') {
       steps {
         container('kubectl') {
