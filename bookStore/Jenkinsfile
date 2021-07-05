@@ -46,10 +46,10 @@ spec:
         container('maven') {
           sh 'pwd'
           sh 'ls'
-          sh 'cd bookStore'
-          sh 'ls'
-          sh 'mvn --version'
-          sh 'mvn clean package'
+          dir('bookStore') {
+            sh 'pwd'
+            sh 'mvn clean package'
+          }
         }
       }
     }
