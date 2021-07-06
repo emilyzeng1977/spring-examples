@@ -23,11 +23,6 @@ spec:
     command:
     - cat
     tty: true
-  - name: nginx
-    image: zengemily79/nginx_server2
-    command:
-    - cat
-    tty: true
   volumes:
   - name: m2-volume
     hostPath:
@@ -44,10 +39,7 @@ spec:
     stage('Run MVN') {
       steps {
         container('maven') {
-          sh 'pwd'
-          sh 'ls'
           dir('bookStore') {
-            sh 'pwd'
             sh 'mvn clean package'
           }
         }
