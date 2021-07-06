@@ -40,6 +40,7 @@ spec:
       steps {
         container('maven') {
           dir('bookStore') {
+            sh 'whoami'
             sh 'mvn clean package'
           }
         }
