@@ -41,6 +41,7 @@ spec:
         container('maven') {
           dir('bookStore') {
             sh 'whoami'
+            sh 'ls /root/.m2'
             sh 'mvn clean package'
           }
         }
