@@ -12,6 +12,16 @@ spec:
     volumeMounts:
     - mountPath: /root/.m2
       name: m2-volume
+    - mountPath: /root/bookStore-jar
+      name: bs-volume    
+    command:
+    - cat
+    tty: true
+  - name: docker
+    image: docker
+    volumeMounts:
+    - mountPath: /root/.kube
+      name: kube-volume
     command:
     - cat
     tty: true
@@ -27,6 +37,10 @@ spec:
   - name: m2-volume
     hostPath:
       path: /var/run/m2
+      type: DirectoryOrCreate
+  - name: bs-volume
+    hostPath:
+      path: /var/run/bookStore-jar
       type: DirectoryOrCreate
   - name: kube-volume
     hostPath:
