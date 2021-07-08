@@ -57,7 +57,6 @@ spec:
         container('maven') {
           dir('bookStore') {
             sh 'mvn clean package'
-            sh "echo ${branch_version}"
             sh "mkdir -p /root/lib/${branch_version}"
             sh "cp -r target /root/lib/${branch_version}/"
           }
