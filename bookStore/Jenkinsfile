@@ -52,7 +52,7 @@ spec:
   stages {
     stage('Run MVN') {
       steps {
-        container('maven 2') {
+        container('maven') {
           dir('bookStore') {
             sh 'whoami'
             sh 'ls /root/.m2'
