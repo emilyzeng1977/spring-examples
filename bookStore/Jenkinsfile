@@ -67,8 +67,10 @@ spec:
     stage('Run Docker') {
       steps {
         container('docker') {
-          dir("/root/lib/${branch_version}") {
-            sh 'docker --version'
+          dir('lib') {
+            dir("${branch_version}") {
+              sh 'docker --version'
+            }
           }
         }
       }
