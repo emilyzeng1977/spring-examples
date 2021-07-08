@@ -52,7 +52,6 @@ spec:
     }
   }
   stages {
-    def branch_version1 = 'abc'
     stage('Run MVN') {
       steps {
         container('maven') {
@@ -61,7 +60,6 @@ spec:
             sh 'ls /root/.m2'
             sh 'mvn clean package'
             sh "echo ${branch_version}"
-            sh "echo ${branch_version1}"
           }
         }
       }
