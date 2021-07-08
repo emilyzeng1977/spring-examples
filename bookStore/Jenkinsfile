@@ -67,6 +67,9 @@ spec:
     stage('Run Docker') {
       steps {
         container('docker') {
+          sh "echo '10.151.80.30 reg.v2k8s.com' >> /etc/hosts"
+          sh 'cat /etc/hosts'
+          sh 'ping reg.v2k8s.com'
           dir('lib') {
             dir("${branch_version}") {
               sh 'docker --version'
