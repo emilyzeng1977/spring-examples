@@ -56,11 +56,10 @@ spec:
       steps {
         container('maven') {
           dir('bookStore') {
-            sh 'whoami'
-            sh 'ls /root/.m2'
             sh 'mvn clean package'
             sh "echo ${branch_version}"
-            sh "echo 'Pulling... ' + env.GIT_BRANCH"
+            sh "mkdir -p /root/lib/${branch_version}"
+            sh "cp -r target /root/lib/${branch_version}/"
           }
         }
       }
