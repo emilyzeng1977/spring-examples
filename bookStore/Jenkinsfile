@@ -70,7 +70,6 @@ spec:
           dir("/root/lib/${branch_version}") {
             sh 'pwd'
             sh 'ls'
-            sh 'ping reg.v2k8s.com'
           }
         }
       }
