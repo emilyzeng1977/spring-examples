@@ -64,7 +64,7 @@ spec:
         }
       }
     }
-    stage('Run MVN') {
+    stage('Run Docker') {
       steps {
         container('docker') {
           dir("/root/lib/${branch_version}") {
