@@ -1,3 +1,5 @@
+def branch_version = "slave-${UUID.randomUUID().toString()}"
+
 pipeline {
   agent {
     kubernetes {
@@ -57,6 +59,7 @@ spec:
             sh 'whoami'
             sh 'ls /root/.m2'
             sh 'mvn clean package'
+            sh 'echo ${branch_version}'
           }
         }
       }
