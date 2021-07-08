@@ -22,8 +22,8 @@ spec:
   - name: docker
     image: docker
     volumeMounts:
-    - mountPath: /root/.kube
-      name: kube-volume
+    - mountPath: /root/lib
+      name: lib-volume
     command:
     - cat
     tty: true
@@ -58,7 +58,19 @@ spec:
           dir('bookStore') {
             sh 'mvn clean package'
             sh "mkdir -p /root/lib/${branch_version}"
+            sh "cp Dockerfile /root/lib/${branch_version}/"
             sh "cp -r target /root/lib/${branch_version}/"
+          }
+        }
+      }
+    }
+    stage('Run MVN') {
+      steps {
+        container('docker') {
+          dir("/root/lib/${branch_version}") {
+            sh 'pwd'
+            sh 'ls'
+            sh 'ping reg.v2k8s.com'
           }
         }
       }
