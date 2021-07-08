@@ -1,4 +1,4 @@
-def branch_version = "slave-${UUID.randomUUID().toString()}"
+def branch_version = "bookStore-${UUID.randomUUID().toString()}"
 
 pipeline {
   agent {
@@ -60,6 +60,7 @@ spec:
             sh 'ls /root/.m2'
             sh 'mvn clean package'
             sh "echo ${branch_version}"
+            sh "echo 'Pulling... ' + env.GIT_BRANCH"
           }
         }
       }
