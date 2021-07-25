@@ -1,0 +1,25 @@
+<processes
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://infomedia.com.au/dp/ProcessesDefinition.xsd"
+        xsi:schemaLocation="http://infomedia.com.au/dp/ProcessesDefinition.xsd
+                            ../../../../../../../ifm-queue-monitor/src/main/resources/xsd/ProcessesDefinition.xsd"
+>
+    <processDefinition name="CatalogImportTaskHandler" type="Standard">
+        <initHandlerName>Fixed Width Import Task Handler</initHandlerName>
+        <initHandlerNamespace>au.com.infomedia.processing.nissan.handlers</initHandlerNamespace>
+        <initHandlerVersion>0</initHandlerVersion>
+        <params>
+            <param key="filenamePrefix" value="CATALOG_.DA1"/>
+            <param key="encoding" value="Shift_JIS"/>
+            <param key="class" value="au.com.infomedia.processing.nissan.data.jooq.tables.JwfCatalog"/>
+        </params>
+    </processDefinition>
+    <processDefinition name="CatalogMergeTaskHandler" type="Standard" depends="CatalogImportTaskHandler">
+        <initHandlerName>Table Merge Task Handler</initHandlerName>
+        <initHandlerNamespace>au.com.infomedia.processing.nissan.handlers</initHandlerNamespace>
+        <initHandlerVersion>0</initHandlerVersion>
+        <params>
+            <param key="class" value="au.com.infomedia.processing.nissan.data.jooq.tables.JwfCatalog"/>
+        </params>
+    </processDefinition>
+</processes>
